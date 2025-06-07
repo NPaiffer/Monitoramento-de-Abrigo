@@ -1,0 +1,304 @@
+[
+    {
+        "id": "d1b1c5f1eea3ab4d",
+        "type": "tab",
+        "label": "Abrigo Enchentes",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e2b2e4fd3e9b6146",
+        "type": "mqtt in",
+        "z": "d1b1c5f1eea3ab4d",
+        "name": "Receber Dados Abrigo01",
+        "topic": "enchentes/abrigos/abrigo01",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "a70e5c73eb02ff6b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 300,
+        "wires": [
+            [
+                "11cb9e36e1fa5641"
+            ]
+        ]
+    },
+    {
+        "id": "11cb9e36e1fa5641",
+        "type": "json",
+        "z": "d1b1c5f1eea3ab4d",
+        "name": "Converter JSON",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 460,
+        "y": 300,
+        "wires": [
+            [
+                "ee8b37c6df39f20d",
+                "9dcbb0a4f77605a0",
+                "a8c6a313be946498"
+            ]
+        ]
+    },
+    {
+        "id": "ee8b37c6df39f20d",
+        "type": "function",
+        "z": "d1b1c5f1eea3ab4d",
+        "name": "Temperatura",
+        "func": "msg.payload = msg.payload.temperatura;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 670,
+        "y": 260,
+        "wires": [
+            [
+                "180508ae0c7b617c"
+            ]
+        ]
+    },
+    {
+        "id": "180508ae0c7b617c",
+        "type": "ui_chart",
+        "z": "d1b1c5f1eea3ab4d",
+        "name": "Gráfico Temperatura",
+        "group": "5719b6dce6a9e148",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Temperatura (°C)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "20",
+        "ymax": "40",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#ff0000"
+        ],
+        "outputs": 1,
+        "x": 880,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9dcbb0a4f77605a0",
+        "type": "function",
+        "z": "d1b1c5f1eea3ab4d",
+        "name": "Umidade",
+        "func": "msg.payload = msg.payload.umidade;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 660,
+        "y": 300,
+        "wires": [
+            [
+                "470a6508675f3b58"
+            ]
+        ]
+    },
+    {
+        "id": "470a6508675f3b58",
+        "type": "ui_chart",
+        "z": "d1b1c5f1eea3ab4d",
+        "name": "Gráfico Umidade",
+        "group": "5719b6dce6a9e148",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "Umidade (%)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "50",
+        "ymax": "100",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#0000ff"
+        ],
+        "outputs": 1,
+        "x": 870,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a8c6a313be946498",
+        "type": "function",
+        "z": "d1b1c5f1eea3ab4d",
+        "name": "Nível da Água",
+        "func": "msg.payload = msg.payload.nivel_agua;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 680,
+        "y": 340,
+        "wires": [
+            [
+                "cf6973d6b8429823"
+            ]
+        ]
+    },
+    {
+        "id": "cf6973d6b8429823",
+        "type": "ui_chart",
+        "z": "d1b1c5f1eea3ab4d",
+        "name": "Gráfico Nível de Água",
+        "group": "5719b6dce6a9e148",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "Nível de Água (0-4095)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "4095",
+        "removeOlder": "30",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#00ff00"
+        ],
+        "outputs": 1,
+        "x": 900,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c36d6222c38848a6",
+        "type": "ui_button",
+        "z": "d1b1c5f1eea3ab4d",
+        "name": "Ligar Buzzer",
+        "group": "5719b6dce6a9e148",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "🔊 Ligar Buzzer",
+        "tooltip": "Liga manualmente o buzzer",
+        "color": "#ffffff",
+        "bgcolor": "#ff0000",
+        "icon": "",
+        "payload": "ligar",
+        "payloadType": "str",
+        "topic": "enchentes/abrigos/abrigo01/buzzer",
+        "x": 290,
+        "y": 400,
+        "wires": [
+            [
+                "505c35a3b38ee60f"
+            ]
+        ]
+    },
+    {
+        "id": "505c35a3b38ee60f",
+        "type": "mqtt out",
+        "z": "d1b1c5f1eea3ab4d",
+        "name": "MQTT Ligar Buzzer",
+        "topic": "enchentes/abrigos/abrigo01/buzzer",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "a70e5c73eb02ff6b",
+        "x": 510,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "370bde117a382d0d",
+        "type": "ui_button",
+        "z": "d1b1c5f1eea3ab4d",
+        "name": "Desligar Buzzer",
+        "group": "5719b6dce6a9e148",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "🔇 Desligar Buzzer",
+        "tooltip": "Desliga manualmente o buzzer",
+        "color": "#ffffff",
+        "bgcolor": "#000000",
+        "icon": "",
+        "payload": "desligar",
+        "payloadType": "str",
+        "topic": "enchentes/abrigos/abrigo01/buzzer",
+        "x": 300,
+        "y": 440,
+        "wires": [
+            [
+                "505c35a3b38ee60f"
+            ]
+        ]
+    },
+    {
+        "id": "a70e5c73eb02ff6b",
+        "type": "mqtt-broker",
+        "name": "HiveMQ",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "5719b6dce6a9e148",
+        "type": "ui_group",
+        "name": "Monitor Abrigo",
+        "tab": "4f57347f6e535b9f",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "4f57347f6e535b9f",
+        "type": "ui_tab",
+        "name": "Enchentes",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
