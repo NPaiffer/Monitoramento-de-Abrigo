@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "author": "Jonathan Kan",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-s2-devkitm-1", "id": "esp", "top": -4.31, "left": 33.37, "attrs": {} },
+    { "type": "led", "id": "led1", "top": -50, "left": 150, "attrs": {} },
+    { "type": "resistor", "id": "res1", "top": 20, "left": 150, "attrs": { "resistance": "220" } },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 50.4,
+      "left": -123,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:5", "res1:1", "green", [] ],
+    [ "res1:2", "led1:1", "blue", [] ],
+    [ "led1:2", "esp:GND.1", "black", [] ],
+    [ "bz1:2", "esp:13", "green", [ "v0" ] ],
+    [ "bz1:1", "esp:GND.1", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
