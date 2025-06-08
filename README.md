@@ -4,7 +4,7 @@ Este projeto simula um sistema de monitoramento para abrigos de emergência em s
 
 ---
 
-## ✅ Funcionalidades Implementadas
+## Funcionalidades Implementadas
 
 ### 1. **Sistema IoT (ESP32)**
 - Simula leitura de 3 dados:
@@ -38,7 +38,7 @@ Este projeto simula um sistema de monitoramento para abrigos de emergência em s
 
 ---
 
-## 🛠️ Como Executar o Projeto
+## Como Executar o Projeto
 
 ### Pré-requisitos
 - Node.js instalado: [https://nodejs.org](https://nodejs.org)
@@ -73,7 +73,7 @@ http://localhost:1880/ui
 
 ---
 
-## 🎯 Objetivo do Projeto
+## Objetivo do Projeto
 
 Este projeto foi desenvolvido como parte do desafio técnico de IoT, com o objetivo de aplicar conceitos de:
 - Sensoriamento simulado
