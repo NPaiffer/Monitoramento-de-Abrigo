@@ -73,17 +73,6 @@ http://localhost:1880/ui
 
 ---
 
-## 📂 Estrutura do Projeto
-```
-├── esp32-sensor.ino             # Código para o ESP32 no Wokwi
-├── fluxo-node-red.json          # Fluxo completo para importar no Node-RED
-├── diagrama-wokwi.json          # Diagrama de montagem no Wokwi (ESP32 + LED)
-├── roteiro-apresentacao.pdf     # Roteiro para apresentação do projeto
-└── README.md                    # Este arquivo
-```
-
----
-
 ## 🎯 Objetivo do Projeto
 
 Este projeto foi desenvolvido como parte do desafio técnico de IoT, com o objetivo de aplicar conceitos de:
