@@ -86,6 +86,4 @@ Este projeto foi desenvolvido como parte do desafio técnico de IoT, com o objet
 
 Desenvolvido por 
 
-Alissa Silva Cezero - RM552535
-Melissa Barbosa de Souza - RM552535
-Nicolas Paiffer do Carmo - RM554145.
+Alissa Silva Cezero - RM552535 <br> Melissa Barbosa de Souza - RM552535 <br> Nicolas Paiffer do Carmo - RM554145.
